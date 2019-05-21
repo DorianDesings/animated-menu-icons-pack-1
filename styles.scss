@@ -1,0 +1,153 @@
+$width:40px;
+$height:5px;
+$bg:#333;
+$top:.7em;
+
+body {
+  width: 100vw;
+  background: #eee;
+}
+
+.title{
+  text-align: center;
+}
+
+.main{
+  display: grid;
+  grid-template-columns: repeat(3,150px);
+  grid-template-rows: repeat(2,150px);
+  grid-gap: 50px;
+  justify-content: center;
+}
+
+.menu, .icon-menu{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.icon-menu{
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+
+  &__bar{
+    background: $bg;
+    width: $width;
+    height: $height;
+    border-radius: $height/2;
+    position: relative;
+
+    transition: all .2s;
+
+    /*transition: height .1s;*/
+
+    &:before, &:after{
+      content: '';
+      position: absolute;
+      display: block;
+      width: $width;
+      height: $height;
+      border-radius: $height/2;
+      background: $bg;
+      top: -$top;
+
+      transition: all .2s;
+    }
+
+    &:after{
+      top: $top;
+    }
+
+    &--simple{
+      height: 0;
+
+      &:before, &:after{
+        top: 0;
+        transform: rotate(-45deg);
+      }
+
+      &:after{
+        transform: rotate(45deg);
+      }
+    }
+
+    &--left-arrow{
+      &:before, &:after{
+        transform: rotate(-35deg);
+        width: 30px;
+        top: -.5em;
+        left: -.1em;
+      }
+
+      &:after{
+        transform: rotate(35deg);
+        top: .5em;
+        left: -.1em;
+      }
+    }
+
+    &--right-arrow{
+      &:before, &:after{
+        transform: rotate(35deg);
+        width: 30px;
+        top: -.5em;
+        right: -.1em;
+      }
+
+      &:after{
+        transform: rotate(-35deg);
+        top: .5em;
+        right: -.1em;
+      }
+    }
+
+    &--compress{
+      &:before, &:after{
+        top: 0;
+       /* transition: top .2s;*/
+      }
+    }
+
+    &--rotate90{
+      transform: rotate(90deg);
+      /*transition: transform .2s;*/
+    }
+
+    &--plus{
+      transform: rotate(90deg);
+
+      &:before, &:after{
+        transform: rotate(-90deg);
+        top: 0;
+      }
+      &:after{
+        height: 0;
+      }
+    }
+  }
+}
+
+.menu-one{
+  background: lightseagreen;
+}
+
+.menu-two{
+  background: lightcoral;
+}
+
+.menu-three{
+  background: lightblue;
+}
+
+.menu-four{
+  background: lightsteelblue;
+}
+
+.menu-five{
+  background: lightgreen;
+}
+
+.menu-six{
+  background: lightsalmon;
+}
